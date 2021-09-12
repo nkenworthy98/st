@@ -1,0 +1,45 @@
+#+TITLE: st - simple terminal
+
+* st
+st is a simple terminal emulator for X which sucks less.
+
+
+* Requirements
+In order to build st you need the Xlib header files.
+
+
+* Installation
+Edit config.mk to match your local setup (st is installed into
+the /usr/local namespace by default).
+
+Afterwards enter the following command to build and install st (if
+necessary as root):
+
+#+begin_src shell
+make clean install
+#+end_src
+
+* Running st
+If you did not install st with make clean install, you must compile
+the st terminfo entry with the following command:
+
+#+begin_src shell
+tic -sx st.info
+#+end_src
+
+See the man page for additional details.
+
+* Credits
+Based on Aurélien APTEL <aurelien dot aptel at gmail dot com> bt source code.
+
+* Patches and Other Changes
+** Patches
+- [[https://st.suckless.org/patches/alpha/][st-alpha-0.8.2.diff]] (transparency)
+- [[https://st.suckless.org/patches/anysize/][st-anysize-0.8.1.diff]] (st will fill entire space allocated to it)
+- [[https://st.suckless.org/patches/blinking_cursor/][st-blinking_cursor-20200531-a2a7044.diff]] (blinking cursor)
+- [[https://st.suckless.org/patches/clipboard/][st-clipboard-0.8.2.diff]] (able to use clipboard)
+- [[https://st.suckless.org/patches/xresources/][st-xresources-20200604-9ba7ecf.diff]] (able to use .Xresources file for colors)
+
+* Config.h Changes
+- Changed font to =Terminus=
+- Added and configured any variables required for patches
